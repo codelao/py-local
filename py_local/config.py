@@ -1,5 +1,5 @@
 import os, subprocess
-import check_connection as con
+from . import check_connection as con
 
 
 if con.check_internet_connection() == True:

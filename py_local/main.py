@@ -1,5 +1,5 @@
 import subprocess
-import config as cfg
+from . import config as cfg
 
 
 def iface():

@@ -6,3 +6,6 @@
 #   `--'  `---'                                         
 
 from .main import ipv4, ipv6, iface, status
+
+NAME = 'py-local'
+VERSION = '0.5.0'
