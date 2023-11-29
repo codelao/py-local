@@ -7,17 +7,12 @@ def iface():
     for iface in possible_wifi_ifaces:
         for i in range(10):
             if iface+str(i)+':' in cfg.ifaces_list or iface+str(i) in cfg.ifaces_list:
-                get_iface_status = subprocess.run(['ifconfig', iface+str(i)], stdout=subprocess.PIPE, text=True)
-                if 'status' in get_iface_status.stdout:
-                    if not 'inactive' in get_iface_status.stdout:
-                        return iface+str(i)
+                return iface+str(i)
+            else:
+                if i+1 == 10:
+                    raise OSError('No active Wi-Fi or Ethernet interfaces found!')
                 else:
-                    if i+1 == 10:
-                        raise OSError('No active Wi-Fi or Ethernet interfaces found!')
-                    else:
-                        continue
-            elif i+1 == 10:
-                raise OSError('No active Wi-Fi or Ethernet interfaces found!')
+                    continue
 
 def status(iface):
     if iface in cfg.ifaces_list or iface+':' in cfg.ifaces_list:
@@ -27,8 +22,10 @@ def status(iface):
                 return True
             else:
                 return False
+        elif 'inet' in get_iface_status.stdout:
+            return True
         else:
-            raise ValueError('Provided interface doesn\'t have information about its status!')
+            raise ValueError('Can\'t find information about interface status! Probably your network configuration doesn\'t support status parameters.')
     else:
         raise ValueError('Unknown interface provided!')
     
