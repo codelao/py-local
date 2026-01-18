@@ -8,4 +8,4 @@
 from .main import ipv4, ipv6, iface, status
 
 __all__ = ["ipv4","ipv6","iface","status"]
-__version__ = '0.5.0'
+__version__ = "0.5.3"
