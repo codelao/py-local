@@ -1,4 +1,4 @@
 **/__pycache__/
 **/*.pyc
 **/dist/
-/py-local.egg-info
+/py_local.egg-info
