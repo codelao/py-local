@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://github.com/codelao/py-local/blob/main/logo.png" width="50%">
+  <img src="https://i.imgur.com/nxoVEaX.png" width="50%">
 </h1>
 
 <p align="center">
